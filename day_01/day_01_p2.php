@@ -48,12 +48,13 @@ function get_first_number(string $string, $numbers, bool $reversed = false)
                 return (string) $j + 1;
             }
         }
-
-        throw new Exception("Unreachable");
     }
 }
 
-
+function get_number(string $line, $numbers): int
+{
+    return (int) (get_first_number(string: $line, numbers: $numbers) . get_first_number(string: $line, numbers: $numbers, reversed: true));
+}
 
 function main()
 {
@@ -64,8 +65,7 @@ function main()
     $solution = [];
 
     foreach ($file as $line) {
-        $value = (int) (get_first_number($line, $numbers) . get_first_number($line, $numbers, true));
-
+        $value = get_number($line, $numbers);
         $solution[] = $value;
     }
 

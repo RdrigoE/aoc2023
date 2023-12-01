@@ -22,6 +22,10 @@ function get_first_number(string $string, bool $reversed = false)
     }
 }
 
+function get_number(string $line): int
+{
+    return (int) (get_first_number(string: $line, reversed: false) . get_first_number(string: $line, reversed: true));
+}
 
 
 function main()
@@ -32,7 +36,7 @@ function main()
     $solution = [];
 
     foreach ($file as $line) {
-        $value = (int) (get_first_number(string: $line, reversed: false) . get_first_number(string: $line, reversed: true));
+        $value = get_number($line);
         $solution[] = $value;
     }
 
