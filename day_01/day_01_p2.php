@@ -6,6 +6,16 @@
 const TEST_FILE = "day_01_test_p2.txt"; // 142
 const FILE = "day_01.txt";
 
+/**
+ * is_number
+ * 
+ * Check if the string contains a number spelled out.
+ *
+ * @param array<string> $string
+ * @param array<string> $number
+ * @param integer $string_index
+ * @return boolean
+ */
 function is_number($string, $number, int $string_index)
 {
     $current_char = $string[$string_index];
@@ -24,7 +34,15 @@ function is_number($string, $number, int $string_index)
     }
 }
 
-function get_first_number(string $string, $numbers, bool $reversed = false)
+/**
+ * Returns the first numeric number or the first spelled out number
+ * 
+ * @param string $string
+ * @param array<string> $numbers
+ * @param boolean $reversed
+ * @return string
+ */
+function get_first_number(string $string, $numbers, bool $reversed = false): string
 {
     $string = str_split($string);
 
@@ -51,6 +69,14 @@ function get_first_number(string $string, $numbers, bool $reversed = false)
     }
 }
 
+/**
+ * Extract the initial number (either numeric or spelled out) from a string 
+ * in both forward and reverse order and creates an integer.
+ * 
+ * @param string $line
+ * @param array<string> $numbers
+ * @return integer
+ */
 function get_number(string $line, $numbers): int
 {
     return (int) (get_first_number(string: $line, numbers: $numbers) . get_first_number(string: $line, numbers: $numbers, reversed: true));

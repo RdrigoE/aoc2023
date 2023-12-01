@@ -6,8 +6,14 @@
 const TEST_FILE = "day_01_test.txt"; // 142
 const FILE = "day_01.txt";
 
-
-function get_first_number(string $string, bool $reversed = false)
+/**
+ * Returns the first numeric number or the first spelled out number
+ * 
+ * @param string $string
+ * @param boolean $reversed
+ * @return string
+ */
+function get_first_number(string $string, bool $reversed = false): string
 {
     $string = str_split($string);
 
@@ -22,6 +28,11 @@ function get_first_number(string $string, bool $reversed = false)
     }
 }
 
+/**
+ * get_number
+ * @param string $line
+ * @return integer
+ */
 function get_number(string $line): int
 {
     return (int) (get_first_number(string: $line, reversed: false) . get_first_number(string: $line, reversed: true));
