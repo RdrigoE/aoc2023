@@ -1,0 +1,42 @@
+<?php
+
+// On each line, the calibration value can be found by 
+// combining the first digit and the last digit (in that order)
+// to form a single two-digit number.
+const TEST_FILE = "day_01_test.txt"; // 142
+const FILE = "day_01.txt";
+
+
+function get_first_number(string $string, bool $reversed = false)
+{
+    $string = str_split($string);
+
+    if ($reversed) {
+        $string = array_reverse($string);
+    }
+
+    foreach ($string as $char) {
+        if (is_numeric($char)) {
+            return $char;
+        }
+    }
+}
+
+
+
+function main()
+{
+
+    $file = file(FILE);
+
+    $solution = [];
+
+    foreach ($file as $line) {
+        $value = (int) (get_first_number(string: $line, reversed: false) . get_first_number(string: $line, reversed: true));
+        $solution[] = $value;
+    }
+
+    echo array_sum($solution);
+}
+
+main();
