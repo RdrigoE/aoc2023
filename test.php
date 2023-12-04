@@ -1,7 +1,6 @@
 <?php
-function check(string $char): bool
-{
-    return !ctype_alpha($char) && !is_numeric($char) && $char != ".";
-}
+$matches = 1;
 
-echo (bool) check("x");
+for ($i = 0; $i < 10; $i++) {
+    print_r($matches *= 2);
+}
