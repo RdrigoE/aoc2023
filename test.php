@@ -1,6 +1,4 @@
 <?php
-$matches = 1;
+preg_match_all('/\d+/', '123..32..12*..1', $m, PREG_OFFSET_CAPTURE); // Fix: Use proper regex delimiters and fix the regex pattern
 
-for ($i = 0; $i < 10; $i++) {
-    print_r($matches *= 2);
-}
+print_r($m);
